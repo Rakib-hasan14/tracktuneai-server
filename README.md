@@ -22,4 +22,3 @@ It uses **Node.js**, **Express**, **GraphQL**, and **PostgreSQL** to offer smart
 ## 🧠 Project Highlights
 
 ### ✅ Clean Architecture
-

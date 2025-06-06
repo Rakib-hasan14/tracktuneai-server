@@ -3,23 +3,42 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "_moduleAliases": {
+    "src": "./src"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dev": "nodemon --exec babel-node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rakib-hasan14/tracktuneai-server.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rakib Hasan raakibhasan86@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Rakib-hasan14/tracktuneai-server/issues"
   },
   "homepage": "https://github.com/Rakib-hasan14/tracktuneai-server#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
     "nodemon": "^3.1.10",
+    "pg": "^8.16.0",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.4",
+    "@babel/node": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "prettier": "^3.5.3"
   }
 }
