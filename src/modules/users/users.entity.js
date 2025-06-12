@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs'
+
 import { DataTypes } from 'sequelize'
 
 // Index
