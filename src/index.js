@@ -1,19 +1,20 @@
 import express from 'express'
 import http from 'http'
-import { Sequelize } from 'sequelize'
+import { sequelize } from 'src/utils/database'
 
-// config
-import { config } from 'src/config/index.js'
-// Initialize Sequelize (Postgres example)
-const sequelize = new Sequelize(config.dbUrl, {
-  dialect: 'postgres',
-  logging: true,
-})
+// Import entities sync function
+import { syncEntities } from 'src/modules/entities.js'
 
-// Test DB connection (optional)
-sequelize.authenticate()
-  .then(() => console.log('✅ Database connected'))
-  .catch(err => console.error('❌ DB connection error:', err))
+// DB connection
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('✅ Database connected')
+
+    // Sync entities after successful connection
+    return syncEntities()
+  })
+  .catch((err) => console.error('❌ DB connection error:', err))
 
 const app = express()
 
