@@ -19,6 +19,7 @@ export const generateToken = (user) => {
     {
       user_id: user.id, // ✅ Include user ID
       email: user.email,
+      roles: user.roles ? user.roles.map(role => role.name) : [], // Include roles if available
     },
     config.jwtSecret,
     {

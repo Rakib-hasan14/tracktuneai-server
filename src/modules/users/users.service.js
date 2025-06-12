@@ -24,7 +24,7 @@ export const registerUser = async (body = {}, transaction) => {
     { include: [{ association: 'roles' }] },
     transaction
   )
-
+  console.log('newUser', newUser)
   return {
     id: newUser.id,
     email: newUser.email,
@@ -37,7 +37,10 @@ export const registerUser = async (body = {}, transaction) => {
 export const loginUser = async (body = {}, transaction) => {
   commonHelper.checkRequiredFields(body, ['email', 'password'])
 
-  const user = await usersHelper.findUser({ where: { email: body.email } }, transaction)
+  const user = await usersHelper.findUser(
+    { include: [{ association: 'roles' }], where: { email: body.email } },
+    transaction
+  )
   if (!user) throw new Error('User not found.')
 
   const isValid = await bcrypt.compare(body.password, user.password)
